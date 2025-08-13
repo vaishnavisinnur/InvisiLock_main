@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/theme-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Index from "./pages/Index";
 import TextEncryption from "./pages/TextEncryption";
 import ImageEncryption from "./pages/ImageEncryption";
@@ -18,16 +18,16 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/text" element={<TextEncryption />} />
-            <Route path="/image" element={<ImageEncryption />} />
-            <Route path="/file" element={<FileEncryption />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+        <HashRouter>
+  <Routes>
+    <Route path="/" element={<Index />} />
+    <Route path="/text" element={<TextEncryption />} />
+    <Route path="/image" element={<ImageEncryption />} />
+    <Route path="/file" element={<FileEncryption />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+</HashRouter>
+
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
